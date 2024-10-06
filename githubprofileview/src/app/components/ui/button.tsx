@@ -1,19 +1,16 @@
-import React, { ReactNode } from "react";
+import React from 'react';
 
-// Types for the Button component props
-interface ButtonProps {
-  children: ReactNode;
+interface CardProps {
   className?: string;
-  onClick?: () => void;
+  children?: React.ReactNode;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
+const Card: React.FC<CardProps> = ({ className, children }) => {
   return (
-    <button
-      className={`bg-blue-600 text-white rounded-md px-4 py-2 hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 ${className}`}
-      {...props}
-    >
+    <div className={className}>
       {children}
-    </button>
+    </div>
   );
 };
+
+export default Card;
