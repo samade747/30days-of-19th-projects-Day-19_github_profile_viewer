@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 // components/ui/avatar.tsx
 import React from "react";
 

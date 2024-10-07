@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 // components/ui/card.tsx
 import React from "react";
 
