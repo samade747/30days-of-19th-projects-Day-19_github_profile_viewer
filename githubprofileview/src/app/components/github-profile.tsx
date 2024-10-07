@@ -68,8 +68,11 @@ export default function GithubProfileViewer() {
       const reposData: UserRepo[] = await reposResponse.json();
       setUserProfile(profileData);
       setUserRepos(reposData);
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);  
+      }
+    
     } finally {
       setLoading(false);
     }
