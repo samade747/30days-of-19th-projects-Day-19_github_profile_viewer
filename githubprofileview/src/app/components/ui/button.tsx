@@ -1,16 +1,18 @@
-import React from 'react';
+// components/ui/button.tsx
+import React from "react";
 
-interface CardProps {
+export function Button({
+  onClick,
+  children,
+  className = "",
+}: {
+  onClick: () => void;
+  children: React.ReactNode;
   className?: string;
-  children?: React.ReactNode;
-}
-
-const Card: React.FC<CardProps> = ({ className, children }) => {
+}) {
   return (
-    <div className={className}>
+    <button onClick={onClick} className={`btn py-2 px-4 rounded ${className}`}>
       {children}
-    </div>
+    </button>
   );
-};
-
-export default Card;
+}

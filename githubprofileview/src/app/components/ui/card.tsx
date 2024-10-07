@@ -1,38 +1,26 @@
-import React, { ReactNode } from "react";
+// components/ui/card.tsx
+import React from "react";
 
-// Types for the Card component props
-interface CardProps {
-  className?: string;
-  children: ReactNode;
+export function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`bg-white shadow-md rounded-lg p-6 ${className}`}>{children}</div>;
 }
 
-export const Card: React.FC<CardProps> = ({ className, children }) => {
-  return (
-    <div
-      className={`rounded-lg shadow-lg bg-white border border-gray-200 ${className}`}
-    >
-      {children}
-    </div>
-  );
-};
+export function CardHeader({ children }: { children: React.ReactNode }) {
+  return <div className="mb-4">{children}</div>;
+}
 
-// Types for the other card components
-export const CardHeader: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return <div className="p-4 border-b border-gray-200">{children}</div>;
-};
+export function CardTitle({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <h2 className={`text-xl font-bold ${className}`}>{children}</h2>;
+}
 
-export const CardTitle: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return <h2 className="text-xl font-semibold">{children}</h2>;
-};
+export function CardDescription({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <p className={`text-gray-600 ${className}`}>{children}</p>;
+}
 
-export const CardDescription: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return <p className="text-gray-500">{children}</p>;
-};
+export function CardContent({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`text-sm ${className}`}>{children}</div>;
+}
 
-export const CardContent: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return <div className="p-4">{children}</div>;
-};
-
-export const CardFooter: React.FC<{ children: ReactNode }> = ({ children }) => {
-  return <div className="p-4 border-t border-gray-200">{children}</div>;
-};
+export function CardFooter({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`mt-4 ${className}`}>{children}</div>;
+}

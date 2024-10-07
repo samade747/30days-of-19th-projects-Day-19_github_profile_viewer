@@ -1,18 +1,14 @@
-import React from 'react';
+// components/ui/avatar.tsx
+import React from "react";
 
-interface AvatarProps {
-  className?: string;
-  children?: React.ReactNode;
-  src?: string;
+export function Avatar({ children }: { children: React.ReactNode }) {
+  return <div className="rounded-full overflow-hidden w-16 h-16">{children}</div>;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ className, children, src }) => {
-  return (
-    <div className={className}>
-      <img src={src} alt="avatar" />
-      {children}
-    </div>
-  );
-};
+export function AvatarImage({ src, alt }: { src: string; alt: string }) {
+  return <img src={src} alt={alt} className="object-cover w-full h-full" />;
+}
 
-export default Avatar;
+export function AvatarFallback({ children }: { children: React.ReactNode }) {
+  return <div className="bg-gray-200 flex items-center justify-center text-xl font-semibold">{children}</div>;
+}

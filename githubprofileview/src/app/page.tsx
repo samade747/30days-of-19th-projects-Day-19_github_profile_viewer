@@ -1,19 +1,12 @@
+// pages/index.tsx
 import React from "react";
+import GithubProfileViewer from "@/app/components/github-profile";
 
-
-const GithubProfileViewer: React.FC = () => {
-  // Ensure that you return valid JSX
+export default function Home() {
   return (
     <div>
-      <h1>Github Profile Viewer</h1>
-
-      <GithubProfileViewer 
-      
-      
-      
-      />
+      <h1>GitHub Profile Viewer</h1>
+      <GithubProfileViewer />
     </div>
   );
-};
-
-export default GithubProfileViewer;
+}

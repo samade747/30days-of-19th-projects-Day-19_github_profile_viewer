@@ -1,28 +1,23 @@
-import React, { useRef } from 'react';
-import { Input } from '@/app/components/ui/input'; // Assuming Input is in the same directory
+// components/ui/input.tsx
+import React from "react";
 
-const ParentComponent = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const focusInput = () => {
-    if (inputRef.current) {
-      inputRef.current.focus(); // This focuses the input using the ref
-    }
-  };
-
+export function Input({
+  value,
+  onChange,
+  placeholder,
+  className = "",
+}: {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  className?: string;
+}) {
   return (
-    <div>
-      <Input
-        ref={inputRef}
-        type="text"
-        placeholder="Enter your name"
-        className="w-full"
-      />
-      <button onClick={focusInput} className="mt-4 bg-blue-500 text-white p-2 rounded">
-        Focus Input
-      </button>
-    </div>
+    <input
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className={`input border border-gray-300 rounded-md w-full p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
+    />
   );
-};
-
-export default ParentComponent;
+}

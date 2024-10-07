@@ -5,12 +5,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color: #0070f3;
+  --secondary-color: #eaeaea;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary-color: #0a84ff;
+    --secondary-color: #333;
   }
 }
 
@@ -18,10 +22,139 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s, color 0.3s;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  background: var(--background);
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.card {
+  border: 1px solid var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: var(--background);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.avatar-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-fallback {
+  font-size: 50px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--foreground);
+}
+
+p {
+  line-height: 1.6;
+}
+
+.lights-panel {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.light {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  position: relative;
+}
+
+.light.active {
+  background-color: var(--primary-color);
+}
+
+.comment-section {
+  background-color: var(--background);
+  border: 1px solid var(--secondary-color);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary-color);
+}
+
+.comment-btn {
+  padding: 8px 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.comment-list {
+  margin-top: 20px;
+}
+
+.comment-item {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
